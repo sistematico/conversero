@@ -23,18 +23,27 @@
               <div class="actions attachment">
                 <i class="zmdi zmdi-phone"></i>
               </div>
-              <div class="actions">
-                <img src="https://i.ibb.co/LdnbHSG/ic-action-videocall.png"/>             
-              </div>
 
-              <div class="dropdown" style="float:right;">
-  <button class="dropbtn">Right</button>
+              <div class="actions">
+                
+
+                <div class="dropdown" style="float:right;">
+  <button class="dropbtn"><i class="zmdi zmdi-mail-reply"></i></button>
   <div class="dropdown-content">
   <a href="#">Link 1</a>
   <a href="#">Link 2</a>
   <a href="#">Link 3</a>
   </div>
 </div>
+              </div>
+
+              <div class="actions">
+                <img src="https://i.ibb.co/LdnbHSG/ic-action-videocall.png"/>             
+              </div>
+
+              
+
+
             </div>
 
 
