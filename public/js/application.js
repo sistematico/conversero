@@ -103,10 +103,11 @@ $(function() {
     });
 });
 
-document.getElementById("mensagens").addEventListener("DOMNodeInserted", function (e) {
-    //e.target // 
-    playSound();
-}, false);
+
+// document.getElementById("mensagens").addEventListener("DOMNodeInserted", function (e) {
+//     //e.target // 
+//     playSound();
+// }, false);
 
 setInterval(() => {
     $.ajax(url + 'chat/list').done(function(data) {
@@ -161,19 +162,36 @@ function logged() {
     });
 }
 
-setInterval(() => {
-    $.ajax({
-        url: 'audio.txt',
-        async: true,
-        complete: function(resp) {
-            if (resp['responseText'] != '') {
-                var res = resp['responseText'];
-                var audio=document.createElement('audio');
-                audio.src = res;
-                audio.play();
-                clearSound();
-            }        
+
+
+
+
+
+
+
+
+
+const targetNode = document.getElementById('mensagens');
+
+// Options for the observer (which mutations to observe)
+const config = { attributes: true, childList: true, subtree: true };
+
+// Callback function to execute when mutations are observed
+const callback = function(mutationsList, observer) {
+    // Use traditional 'for loops' for IE 11
+    for(let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            console.log('A child node has been added or removed.');
         }
-    });
-}, 1000);
+        else if (mutation.type === 'attributes') {
+            console.log('The ' + mutation.attributeName + ' attribute was modified.');
+        }
+    }
+};
+
+// Create an observer instance linked to the callback function
+const observer = new MutationObserver(callback);
+
+// Start observing the target node for configured mutations
+observer.observe(targetNode, config);
 
