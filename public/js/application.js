@@ -103,6 +103,11 @@ $(function() {
     });
 });
 
+document.getElementById("mensagens").addEventListener("DOMNodeInserted", function (e) {
+    //e.target // 
+    playSound();
+}, false);
+
 setInterval(() => {
     $.ajax(url + 'chat/list').done(function(data) {
         let result = '';
@@ -127,13 +132,16 @@ setInterval(() => {
 }, 1500);
 
 function playSound(){
-    $.ajax({
-        type:'POST',
-        url: url + 'chat/notification',
-        data: { sound: url + 'snd/incoming.mp3' },
-        async : true,
-        success: function(resp){}
-    });
+    // $.ajax({
+    //     type:'POST',
+    //     url: url + 'chat/notification',
+    //     data: { sound: url + 'snd/incoming.mp3' },
+    //     async : true,
+    //     success: function(resp){}
+    // });
+
+    let audio = new Audio(url + "snd/incoming.mp3");
+    audio.play();
 }
 
 function clearSound() {
