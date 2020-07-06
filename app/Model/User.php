@@ -17,7 +17,7 @@ class User extends Model
         if ($usuario = $this->get($nome) != false) {
             if ($usuario['nome'] === $nome) {
                 $_SESSION['id'] = $usuario['id'];
-                return json_encode(['id'=>$usuario['id'],'nome'=>$usuario['nome']);
+                return json_encode(['id'=>$usuario['id'],'nome'=>$usuario['nome']]);
             }
         } 
         return 'false';
