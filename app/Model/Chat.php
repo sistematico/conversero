@@ -8,13 +8,19 @@ class Chat extends Model
 {
     public function list()
     {
-        $query = $this->db->prepare("SELECT id, usuario, mensagem, timestamp FROM chat ORDER BY timestamp DESC LIMIT 20");
+        //$query = $this->db->prepare("SELECT id, usuario, mensagem, timestamp FROM chat ORDER BY timestamp DESC LIMIT 20");
+        $query = $this->db->prepare("SELECT id, usuario, mensagem, timestamp FROM chat INNER JOIN usuarios ON chat.id = usuarios.id ORDER BY chat.timestamp DESC LIMIT 20");
         $query->execute();
         $results = [];
         while ($row = $query->fetch(\PDO::FETCH_BOTH)) {
             $results[] = $row;
             $results += ['cor' => $this->getCor($row['nome'])];
         }
+
+        foreach ($results as $key => $value) {
+            $results[$key] = $value;
+        }
+        
 
         return json_encode($results);
     }
