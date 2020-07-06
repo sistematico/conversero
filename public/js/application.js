@@ -48,6 +48,7 @@ $(function() {
                 success  : function(data) {
                     if (data != 'false') {
                         data = JSON.parse(data);
+                        $('#cadastroform').hide();
                         $('#loginform').hide();
                         $('#form_msg').show();
                         nome = data.nome;
@@ -70,8 +71,9 @@ $(function() {
                 },
                 success  : function(data) {
                     if (data != 'false') {
-                        $('#loginform').hide();
-                        $('#form_msg').show();
+                        $('#loginform').show();
+                        $('#cadastroform').hide();
+                        $('#form_msg').hide();
                     }
                 }
             });
