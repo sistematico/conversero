@@ -102,7 +102,7 @@ setInterval(() => {
     $.ajax(url + 'chat/list').done(function(data) {
         let result = '';
         data = $.parseJSON(data);
-        //data.reverse();       
+        data.reverse();       
 
         console.log(data);
 
