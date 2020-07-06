@@ -59,9 +59,9 @@ class Chat extends Model
     {
         $query = $this->db->prepare("SELECT id timestamp FROM chat ORDER BY timestamp ASC LIMIT 1");
         $query->execute();
-        //$result = $query->fetch(\PDO::FETCH_BOTH);
+        $result = $query->fetch(\PDO::FETCH_BOTH);
 
-        if ($result = $query->fetch(\PDO::FETCH_BOTH) && count($result) > 20) {
+        if ($result && count($result) > 20) {
             return $result[0];
         } else {
             return false;
