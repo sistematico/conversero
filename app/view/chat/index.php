@@ -1,29 +1,8 @@
-<div class="page">
+
     <div class="screen">
       <div class="screen-container">
         <div class="chat">
           <div class="chat-container">
-            <div class="user-bar">
-              <div class="back">
-                <i class="zmdi zmdi-arrow-left"></i>
-              </div>
-              <div class="avatar">
-                <img src="<?php echo URL; ?>img/avatar.png" alt="Avatar">
-              </div>
-              <div class="name">
-                <span>Conversero</span>
-                <span class="status">online</span>
-              </div>
-              <div class="actions more">
-                <i class="zmdi zmdi-more-vert"></i>
-              </div>
-              <div class="actions attachment">
-                <i class="zmdi zmdi-phone"></i>
-              </div>
-              <div class="actions">
-                <img src="https://i.ibb.co/LdnbHSG/ic-action-videocall.png"/>             
-              </div>
-            </div>
             <div class="conversation">
               <div id="mensagens" class="conversation-container">
                 <div class="message sent">
@@ -60,4 +39,4 @@
         </div>
       </div>
     </div>
-</div>
+
