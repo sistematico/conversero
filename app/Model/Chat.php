@@ -22,7 +22,7 @@ class Chat extends Model
 
     public function add($mensagem)
     {
-        $this->deleteLast($this->getLast());
+        $this->deleteLast();
 
         $User = new User();
         if (isset($_SESSION['id']) && $user = $User->get($_SESSION['id'])) {
@@ -41,27 +41,15 @@ class Chat extends Model
         return 'false';
     }
 
-    public function deleteLast($id)
-    {
-        if ($id != false) {
-        $sql = 'DELETE FROM chat WHERE id = :id LIMIT 1';
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(':id', $id);    
-        $stmt->execute();    
-        return $stmt->rowCount();
-        }
-    }
-
-    public function getLast()
+    public function deleteLast()
     {
         $query = $this->db->prepare("SELECT id timestamp FROM chat ORDER BY timestamp ASC LIMIT 1");
         $query->execute();
         $result = $query->fetch(\PDO::FETCH_BOTH);
 
         if ($result && count($result) > 20) {
-            return $result[0];
-        } else {
-            return false;
+            $stmt = $this->db->prepare('DELETE FROM chat WHERE id = :id LIMIT 1');
+            $stmt->execute([':id' => $result[0]]);   
         }
     }
 
