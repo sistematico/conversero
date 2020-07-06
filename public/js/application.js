@@ -14,12 +14,15 @@ $(function() {
         if ($('#usuario_login').val().length > 0 && $('#senha_login').val().length > 0) {
             $.ajax({
                 type     : 'POST',
-                cache    : false,
-                url      : url + 'chat/add',
-                data     : { mensagem: $('#mensagem').val() },
+                url      : url + 'users/login',
+                data     : { 
+                    usuario: $('#usuario_login').val(),
+                    senha: $('#senha_login').val() 
+                },
                 success  : function(data) {
                     if (data) {
-                        $('#mensagem').val('');
+                        $('#loginform').hide();
+                        $('#form_msg').show();
                     }
                 }
             });
@@ -31,12 +34,15 @@ $(function() {
         if ($('#usuario_cadastro').val().length > 0 && $('#senha_cadastro').val().length > 0) {
             $.ajax({
                 type     : 'POST',
-                cache    : false,
-                url      : url + 'chat/add',
-                data     : { mensagem: $('#mensagem').val() },
+                url      : url + 'users/add',
+                data     : { 
+                    usuario: $('#usuario_cadastro').val(),
+                    senha: $('#senha_cadastro').val() 
+                },
                 success  : function(data) {
                     if (data) {
-                        $('#mensagem').val('');
+                        $('#loginform').hide();
+                        $('#form_msg').show();
                     }
                 }
             });
