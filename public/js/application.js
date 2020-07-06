@@ -130,6 +130,14 @@ function clearSound() {
     });
 }
 
+function logged() {
+    $.ajax({
+        url: url + 'users/logged',
+        success: function(data) {
+            return data;
+        }
+    });
+}
 
 setInterval(() => {
     $.ajax({
