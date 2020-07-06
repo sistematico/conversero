@@ -20,7 +20,7 @@ class Chat extends Model
 
     public function add($mensagem)
     {
-        if ($user = User::get($_SESSION['id'])) {
+        if (isset($_SESSION['id']) && $user = User::get($_SESSION['id'])) {
             try {
                 $mensagem = strip_tags($mensagem);
                 $sql = "INSERT INTO chat (usuario,mensagem,timestamp) VALUES (:usuario,:mensagem,:timestamp)";
