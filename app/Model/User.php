@@ -5,11 +5,22 @@ use App\Core\Model;
 
 class User extends Model
 {
-    public function add($artist, $track, $link)
+    public function add($nome, $senha)
     {
-        $sql = "INSERT INTO song (artist, track, link) VALUES (:artist, :track, :link)";
+        $sql = "INSERT INTO usuarios (nome, senha) VALUES (:nome, :senha)";
         $query = $this->db->prepare($sql);
-        $parameters = array(':artist' => $artist, ':track' => $track, ':link' => $link);
-        $query->execute($parameters);
+        $query->execute([':nome' => $nome, ':senha' => $senha]);
+    }
+
+    public function login($nome, $senha)
+    {
+        $sql = "INSERT INTO usuarios (nome, senha) VALUES (:nome, :senha)";
+        $query = $this->db->prepare($sql);
+        $query->execute([':nome' => $nome, ':senha' => $senha]);
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['id']);
     }
 }
