@@ -8,7 +8,7 @@ class Chat extends Model
 {
     public function list()
     {
-        $query = $this->db->prepare("SELECT chat.id AS id, chat.usuario AS usuario, chat.mensagem AS mensagem, chat.timestamp AS timestamp, usuarios.cor AS cor FROM chat LEFT JOIN usuarios ON chat.usuario = usuarios.nome ORDER BY chat.timestamp DESC LIMIT 20");
+        $query = $this->db->prepare("SELECT chat.id AS id, chat.usuario AS usuario, chat.mensagem AS mensagem, chat.timestamp AS timestamp, chat.idusuario AS idusuario, usuarios.cor AS cor FROM chat LEFT JOIN usuarios ON chat.usuario = usuarios.nome ORDER BY chat.timestamp DESC LIMIT 20");
         $query->execute();
         $results = [];
         while ($row = $query->fetch(\PDO::FETCH_BOTH)) {
