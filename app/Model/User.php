@@ -14,9 +14,10 @@ class User extends Model
 
     public function login($nome, $senha)
     {
-        if ($usuario = $this->get($nome) != false) {
-                $_SESSION['id'] = $usuario->id;
-                return json_encode(['id'=>$usuario->id]);
+        $user = $this->get($nome);
+        if ($user != false) {
+                $_SESSION['id'] = $user->id;
+                return json_encode(['id'=>$user->id]);
         } 
         return 'false';
     }
