@@ -46,9 +46,9 @@ class ChatController
         require APP . 'view/_templates/footer.php';
     }
 
-    public function notification($action = false)
+    public function notification()
     {
         $Chat = new Chat();
-        $Chat->notification($action);
+        $Chat->notification($_POST['sound']);
     }
 }

@@ -57,12 +57,8 @@ class Chat extends Model
         }
     }
 
-    public function notification($action)
+    public function notification($sound)
     {
-        if ($action === false) {
-            file_put_contents("audio.txt", URL + 'snd/incoming.mp3');
-        } else {
-            file_put_contents("audio.txt", '');
-        }
+        file_put_contents("audio.txt", $sound);
     }    
 }
