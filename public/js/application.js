@@ -83,6 +83,7 @@ $(function() {
 
     $('#form_msg').on('submit', function(e) {
         e.preventDefault();
+        document.getElementById('mensagem').scrollIntoView();
         if ($('#mensagem').val().length > 0) {
             $.ajax({
                 type     : 'POST',
