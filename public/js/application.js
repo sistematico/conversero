@@ -180,8 +180,9 @@ const config = { attributes: true, childList: true, subtree: true };
 const callback = function(mutationsList, observer) {
     // Use traditional 'for loops' for IE 11
     for(let mutation of mutationsList) {
+        console.log('A child node has been added or removed.', mutation.type);
         if (mutation.type === 'childList') {
-            console.log('A child node has been added or removed.');
+            //console.log('A child node has been added or removed.', mutation.type);
         }
         else if (mutation.type === 'attributes') {
             console.log('The ' + mutation.attributeName + ' attribute was modified.');
