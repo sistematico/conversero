@@ -42,7 +42,7 @@ $(function() {
 });
 
 setInterval(() => {
-    $.ajax(url + "/chat/list").done(function(data) {
+    $.ajax(url + 'chat/list').done(function(data) {
         let result = '';
         data = $.parseJSON(data);
         data.reverse();       
@@ -69,7 +69,7 @@ function playSound(){
     $.ajax({
         type:'POST',
         url: url + 'chat/notification',
-        // data: { url: 'snd/' },
+        data: { sound: url + 'snd/incoming.mp3' },
         async : true,
         success: function(resp){}
     });
