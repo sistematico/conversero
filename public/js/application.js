@@ -1,30 +1,34 @@
 $(function() {
+    $('#loginlink').on('click', function(){
+        $('#cadastrolink').show();
+        $('#loginlink').hide();
+    });
+
+    $('#cadastrolink').on('click', function(){
+        $('#loginlink').show();
+        $('#cadastrolink').hide();
+    });
+
+
     $('#form_msg').on('submit', function(e){
         e.preventDefault();
         if ($('#mensagem').val().length > 0) {
-            // $.post(url + "chat/add",{ mensagem: $("#mensagem").val() }, function(data) {
-                // if (data) {
-                    // $('#mensagem').val('');
-                // }
-            // });
-
             $.ajax({
-                url: "audio.txt",
-                //type: 'POST',
+                url: 'audio.txt',
                 async: true,
                 complete: function(resp) {
-                    var res = resp["responseText"];
-                    var audio=document.createElement("audio");
+                    var res = resp['responseText'];
+                    var audio=document.createElement('audio');
                     audio.src = res;
                     audio.play();                
                 }
             });
 
             $.ajax({
-                type     : "POST",
+                type     : 'POST',
                 cache    : false,
-                url      : url + "chat/add",
-                data     : { mensagem: $("#mensagem").val() },
+                url      : url + 'chat/add',
+                data     : { mensagem: $('#mensagem').val() },
                 success  : function(data) {
                     if (data) {
                         $('#mensagem').val('');
@@ -80,12 +84,12 @@ function clearSound() {
 
 setInterval(() => {
     $.ajax({
-        url: "audio.txt",
+        url: 'audio.txt',
         async: true,
         complete: function(resp) {
-            if (resp["responseText"] != '') {
-                var res = resp["responseText"];
-                var audio=document.createElement("audio");
+            if (resp['responseText'] != '') {
+                var res = resp['responseText'];
+                var audio=document.createElement('audio');
                 audio.src = res;
                 audio.play();
                 clearSound();
