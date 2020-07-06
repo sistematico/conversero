@@ -25,15 +25,11 @@ class User extends Model
 
     public function get($nome)
     {
-        try {
-            $query = $this->db->prepare("SELECT id,nome,senha FROM usuarios WHERE nome = ? OR id = ? LIMIT 1");
-            $query->execute([$nome, $nome]);
-            //$result = $query->fetch(\PDO::FETCH_BOTH);
-            return $query->fetch(\PDO::FETCH_BOTH);
-        } catch (\PDOException $e) {
-            return false;
-        }
-        return false;
+        $sql = "SELECT id, artist, track, link FROM song WHERE id = ? OR nome = ? LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array($nome,$nome);
+        $query->execute($parameters);
+        return $query->fetch();
     }
 
     public function logout()
