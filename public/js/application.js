@@ -174,7 +174,7 @@ function logged() {
 const targetNode = document.getElementById('mensagens');
 
 // Options for the observer (which mutations to observe)
-const config = { attributes: false, childList: false, subtree: false};
+const config = { attributes: false, childList: false, subtree: false, characterData: true};
 
 // Callback function to execute when mutations are observed
 const callback = function(mutationsList, observer) {
