@@ -1,4 +1,20 @@
 $(function() {
+    $.ajax({
+        url: url + 'users/logged',
+        success: function(data) {
+            if (data) {
+                $('#cadastroform').hide()
+                $('#loginform').hide();
+                $('#form_msg').show();
+            } else {
+                $('#cadastroform').hide()
+                $('#loginform').show();
+                $('#form_msg').hide();
+            }
+        }
+    });
+
+
     $('#loginlink').on('click', function(){
         $('#cadastroform').hide();
         $('#loginform').show();
@@ -137,3 +153,4 @@ setInterval(() => {
         }
     });
 }, 1000);
+
