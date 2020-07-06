@@ -25,11 +25,11 @@ class ChatController
         echo $Chat->list();
     }
 
-    public function last()
-    {
-        $Chat = new Chat();
-        echo $Chat->getLast();
-    }
+    // public function last()
+    // {
+    //     $Chat = new Chat();
+    //     echo $Chat->getLast();
+    // }
 
     public function add()
     {
