@@ -109,7 +109,7 @@ setInterval(() => {
         data = $.parseJSON(data);
         data.reverse();       
         $.each(data, function(key, item) {
-            if (userid == item.id) {
+            if (userid == item.idusuario) {
                 result += '<div class="message sent">';
             } else {
                 result += '<div class="message received">';
