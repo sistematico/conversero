@@ -20,16 +20,19 @@ class Chat extends Model
 
     public function add($mensagem)
     {
-        try {
-            $mensagem = strip_tags($mensagem);
-            $sql = "INSERT INTO chat (mensagem,timestamp) VALUES (:mensagem,:timestamp)";
-            $query = $this->db->prepare($sql);
-            $query->execute([':mensagem' => $mensagem, ':timestamp' => time()]);
-            return 'true';
-        } catch (\PDOException $e) {
-            unset($e);
-            return 'false';
+        if ($user = User::get($_SESSION['id'])) {
+            try {
+                $mensagem = strip_tags($mensagem);
+                $sql = "INSERT INTO chat (usuario,mensagem,timestamp) VALUES (:usuario,:mensagem,:timestamp)";
+                $query = $this->db->prepare($sql);
+                $query->execute([':usuario' => $user->nome, ':mensagem' => $mensagem, ':timestamp' => time()]);
+                return 'true';
+            } catch (\PDOException $e) {
+                unset($e);
+                return 'false';
+            }        
         }
+
         return 'false';
     }
 
