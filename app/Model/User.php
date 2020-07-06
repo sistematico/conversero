@@ -14,7 +14,7 @@ class User extends Model
 
     public function login($nome, $senha)
     {
-        if ($usuario = self::get($nome)) {
+        if ($usuario = $this->get($nome)) {
             if ($usuario->nome == $nome) {
                 $_SESSION['id'] = $usuario->id;
                 return json_encode(['id'=>$usuario->id,'nome'=>$usuario->nome]);
@@ -23,11 +23,10 @@ class User extends Model
         return 'false';
     }
 
-    public static function get($nome)
+    public function get($nome)
     {
-        //$db = self::$database;
         try {
-            $query = self::$database->prepare("SELECT id,nome,senha FROM usuarios WHERE nome = :nome OR id = :nome LIMIT 1");
+            $query = $this->$db->prepare("SELECT id,nome,senha FROM usuarios WHERE nome = :nome OR id = :nome LIMIT 1");
             $query->execute([':nome' => $nome]);
             return $query->fetch(\PDO::FETCH_BOTH);
         } catch (\PDOException $e) {
