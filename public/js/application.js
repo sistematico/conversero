@@ -1,14 +1,10 @@
 $(function() {
     $('#loginlink').on('click', function(){
-        $('#loginlink').hide();
-        $('#cadastrolink').show();
         $('#cadastroform').hide();
         $('#loginform').show();
     });
 
     $('#cadastrolink').on('click', function(){
-        $('#cadastrolink').hide();
-        $('#loginlink').show();
         $('#loginform').hide();
         $('#cadastroform').show();
     });
