@@ -16,7 +16,7 @@
     </div>
     <form id="form_msg" class="conversation-compose">
       <input id="mensagem" class="input-msg" name="input" placeholder="Escreva uma mensagem..." autocomplete="off" autofocus>
-      <button type="submit" class="send">
+      <button type="submit" class="send" onclick="playSound()">
           <div class="circle">
             <i class="zmdi zmdi-mail-send"></i>
           </div>
