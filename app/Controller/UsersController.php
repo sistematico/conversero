@@ -22,4 +22,10 @@ class UsersController
         $User = new User();
         echo $User->logout();
     }
+
+    public function logged()
+    {
+        $User = new User();
+        echo $User->logged();
+    }
 }
