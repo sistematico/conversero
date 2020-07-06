@@ -2,6 +2,7 @@
 
 namespace App\Model;
 use App\Core\Model;
+use App\Model\User;
 
 class Chat extends Model
 {
@@ -20,7 +21,8 @@ class Chat extends Model
 
     public function add($mensagem)
     {
-        if (isset($_SESSION['id']) && $user = User::get($_SESSION['id'])) {
+        $User = new User();
+        if (isset($_SESSION['id']) && $user = $User->get($_SESSION['id'])) {
             try {
                 $mensagem = strip_tags($mensagem);
                 $sql = "INSERT INTO chat (usuario,mensagem,timestamp) VALUES (:usuario,:mensagem,:timestamp)";
