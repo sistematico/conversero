@@ -1,12 +1,16 @@
 $(function() {
     $('#loginlink').on('click', function(){
-        $('#cadastrolink').show();
         $('#loginlink').hide();
+        $('#cadastrolink').show();
+        $('#cadastroform').hide();
+        $('#loginform').show();
     });
 
     $('#cadastrolink').on('click', function(){
-        $('#loginlink').show();
         $('#cadastrolink').hide();
+        $('#loginlink').show();
+        $('#loginform').hide();
+        $('#cadastroform').show();
     });
 
 
