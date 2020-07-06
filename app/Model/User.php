@@ -7,9 +7,13 @@ class User extends Model
 {
     public function add($nome, $senha)
     {
-        $sql = "INSERT INTO usuarios (nome, senha) VALUES (:nome, :senha)";
+
+        $cores = ["Neo", "Morpheus", "Trinity", "Cypher", "Tank"];
+        $cor = $cores[array_rand($cores)];
+
+        $sql = "INSERT INTO usuarios (nome, senha, cor) VALUES (:nome, :senha, :cor)";
         $query = $this->db->prepare($sql);
-        $query->execute([':nome' => $nome, ':senha' => $senha]);
+        $query->execute([':nome' => $nome, ':senha' => $senha, ':cor' => $cor]);
     }
 
     public function login($nome, $senha)
