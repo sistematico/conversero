@@ -84,7 +84,9 @@ $(function() {
     $('#form_msg').on('submit', function(e) {
         e.preventDefault();
         //document.getElementById('mensagens').scrollIntoView();
-        document.getElementById('mensagens').scrollTop = -1; 
+        //document.getElementById('mensagens').scrollTop = -1; 
+        let elmnt = document.getElementById('mensagens');
+        elmnt.scrollTop = elmnt.offsetHeight;
         if ($('#mensagem').val().length > 0) {
             $.ajax({
                 type     : 'POST',
