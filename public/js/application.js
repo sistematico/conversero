@@ -2,9 +2,21 @@ $(function() {
     $('#formmensagens').on('submit', function(e){
         e.preventDefault();
         if ($('#mensagem').val().length > 0) {
-            $.post(url + "chat/add",{ mensagem: $("#mensagem").val() }, function(data) {
-                if (data) {
-                    $('#mensagem').val('');
+            // $.post(url + "chat/add",{ mensagem: $("#mensagem").val() }, function(data) {
+                // if (data) {
+                    // $('#mensagem').val('');
+                // }
+            // });
+
+            $.ajax({
+                type     : "POST",
+                cache    : false,
+                url      : url + "chat/add",
+                data     : { mensagem: $("#mensagem").val() },
+                success  : function(data) {
+                    if (data) {
+                        $('#mensagem').val('');
+                    }
                 }
             });
         }
