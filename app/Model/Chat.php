@@ -67,7 +67,8 @@ class Chat extends Model
     public function getCor($nome)
     {
         $User = new User();
-        return $User->get($nome)->cor;
+        $cor = $User->get($nome);
+        return $cor['cor'];
     }
 
     public function notification($sound)
