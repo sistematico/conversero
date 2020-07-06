@@ -22,7 +22,8 @@ $(function() {
 
             $.ajax({
                 type:'POST',
-                url: url + 'chat/notification/0',
+                url: url + 'chat/notification',
+                data: { sound: '' },
                 success: function(resp){ }
             });
 
