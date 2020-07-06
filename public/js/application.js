@@ -10,7 +10,7 @@ $(function() {
 
             $.ajax({
                 url: "audio.txt",
-                type: 'POST',
+                //type: 'POST',
                 async: true,
                 complete: function(resp) {
                     var res = resp["responseText"];
@@ -20,12 +20,12 @@ $(function() {
                 }
             });
 
-            $.ajax({
-                type:'POST',
-                url: url + 'chat/notification',
-                data: { sound: '' },
-                success: function(resp){ }
-            });
+            // $.ajax({
+            //     type:'POST',
+            //     url: url + 'chat/notification',
+            //     data: { sound: '' },
+            //     success: function(resp){ }
+            // });
 
             $.ajax({
                 type     : "POST",
