@@ -154,7 +154,7 @@
   .conversation {
     height: calc(100% - 12px);
     position: relative;
-    background: url("https://i.ibb.co/3s1f9Jq/default-wallpaper.png") repeat;
+    background: url("../img/wallpaper.png") repeat;
     z-index: 0;
   }
   
