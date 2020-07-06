@@ -73,7 +73,7 @@ function clearSound() {
     $.ajax({
         type:'POST',
         url: url + 'chat/notification',
-        data: { sound: '' },
+        //data: { sound: '' },
         success: function(resp){ }
     });
 }
