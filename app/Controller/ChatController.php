@@ -48,7 +48,8 @@ class ChatController
 
     public function notification()
     {
+        $sound = (isset($_POST['sound']) ? $_POST['sound'] : '');
         $Chat = new Chat();
-        $Chat->notification($_POST['sound']);
+        $Chat->notification($sound);
     }
 }
