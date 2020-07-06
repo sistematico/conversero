@@ -1,5 +1,5 @@
 $(function() {
-    $('#formmensagens').on('submit', function(e){
+    $('#form_msg').on('submit', function(e){
         e.preventDefault();
         if ($('#mensagem').val().length > 0) {
             // $.post(url + "chat/add",{ mensagem: $("#mensagem").val() }, function(data) {
