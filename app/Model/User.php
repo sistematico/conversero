@@ -14,9 +14,26 @@ class User extends Model
 
     public function login($nome, $senha)
     {
-        $sql = "INSERT INTO usuarios (nome, senha) VALUES (:nome, :senha)";
-        $query = $this->db->prepare($sql);
-        $query->execute([':nome' => $nome, ':senha' => $senha]);
+        if ($usuario = $this->get()) {
+            if ($usuario->nome == $nome) {
+                $_SESSION['id'] = $usuario->id;
+                return $usuario->id;
+            }
+        } 
+        return 'false';
+    }
+
+    public function get($id)
+    {
+        try {
+            $query = $this->db->prepare("SELECT id,nome,senha FROM usuarios WHERE nome = :nome LIMIT 1");
+            $query->execute([':nome' => $nome]);
+            return $query->fetch(\PDO::FETCH_BOTH);
+        } catch (\PDOException $e) {
+            return false;
+        }
+
+        return false;
     }
 
     public function logout()
