@@ -13,10 +13,7 @@ class Chat extends Model
         $results = [];
         while ($row = $query->fetch(\PDO::FETCH_BOTH)) {
             $results[] = $row;
-        }
-
-        foreach ($results as $item) {
-            $results['cor'][] = $this->getCor($item['nome']);
+            $results['cor'][] = $this->getCor($row->nome);
         }
 
         return json_encode($results);
