@@ -1,12 +1,3 @@
-<main role="main" class="container">
-    <h1>Conversero</h1>
-    <div class="table-responsive">
-        <table class="table">
-            <tbody id="mensagens" style="overflow-y: auto"></tbody>
-        </table>
-    </div>
-</main>
-
 <footer class="footer">
     <div class="container">
     <form id="formmensagens" class="form-inline" action="<?php echo URL; ?>chat/index" method="post">
@@ -72,7 +63,7 @@
               </div>
             </div>
             <div class="conversation">
-              <div class="conversation-container">
+              <div id="mensagens" class="conversation-container">
                 <div class="message sent">
                   What happened last night swaibu?
                   <span class="metadata">
