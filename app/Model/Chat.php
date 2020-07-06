@@ -8,19 +8,22 @@ class Chat extends Model
 {
     public function list()
     {
-        $this->deleteLast($this->getLast());
-
         $query = $this->db->prepare("SELECT id, usuario, mensagem, timestamp FROM chat ORDER BY timestamp DESC LIMIT 20");
         $query->execute();
         $results = [];
         while ($row = $query->fetch(\PDO::FETCH_BOTH)) {
             $results[] = $row;
         }
+
+        $this->getCor();
+
         return json_encode($results);
     }
 
     public function add($mensagem)
     {
+        $this->deleteLast($this->getLast());
+
         $User = new User();
         if (isset($_SESSION['id']) && $user = $User->get($_SESSION['id'])) {
             try {
@@ -60,6 +63,12 @@ class Chat extends Model
         } else {
             return false;
         }
+    }
+
+    public function getCor($nome)
+    {
+        $User = new User();
+        return $User->get($nome)->cor;
     }
 
     public function notification($sound)
