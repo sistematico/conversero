@@ -104,11 +104,12 @@ setInterval(() => {
         let result = '';
         data = $.parseJSON(data);
         data.reverse();       
-
-        //console.log(data);
-
         $.each(data, function(key, item) {
-            result += '<div class="message sent">';
+            if (userid == item.id) {
+                result += '<div class="message sent">';
+            } else {
+                result += '<div class="message received">';
+            }
             result += '<span style="color: ' + item.cor + '">' + item.usuario + '</span>'; 
             result += '<br />';
             result += item.mensagem;
