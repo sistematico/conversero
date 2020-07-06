@@ -60,5 +60,6 @@ class Chat extends Model
     public function notification($sound)
     {
         file_put_contents("audio.txt", $sound);
+        return $sound;
     }    
 }
