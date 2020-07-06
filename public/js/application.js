@@ -102,7 +102,10 @@ setInterval(() => {
     $.ajax(url + 'chat/list').done(function(data) {
         let result = '';
         data = $.parseJSON(data);
-        data.reverse();       
+        //data.reverse();       
+
+        console.warn(data);
+
         $.each(data, function(key, item) {
             result += '<div class="message sent">';
             if (item.usuario) {
