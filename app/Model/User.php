@@ -7,7 +7,7 @@ class User extends Model
 {
     public function add($nome, $senha)
     {
-        $cores = ["Neo", "Morpheus", "Trinity", "Cypher", "Tank"];
+        $cores = ["#6272a4", "#8be9fd", "#50fa7b", "#ffb86c", "#ff79c6"];
         $cor = $cores[array_rand($cores)];
 
         $sql = "INSERT INTO usuarios (nome, senha, cor) VALUES (:nome, :senha, :cor)";
