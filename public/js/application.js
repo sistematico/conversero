@@ -78,10 +78,11 @@ function clearSound() {
     });
 }
 
+clearSound();
 //var check=setInterval(function(){
     $.ajax({
         url: "audio.txt",
-        type: 'POST',
+        //type: 'POST',
         async: true,
         complete: function(resp){
             var res = resp["responseText"];
