@@ -28,7 +28,7 @@ class User extends Model
         try {
             $query = $this->db->prepare("SELECT id,nome,senha FROM usuarios WHERE nome LIKE :nome OR id LIKE :id LIMIT 1");
             $query->execute([':nome' => $nome,':id' => $nome]);
-            return $query->fetch(\PDO::FETCH_BOTH);
+            return $query->fetch(\PDO::FETCH_BOTH)[0];
         } catch (\PDOException $e) {
             return false;
         }
