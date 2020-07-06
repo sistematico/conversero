@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 define('APP', ROOT . 'app' . DIRECTORY_SEPARATOR);
-define('DB_FILE', ROOT . 'db' . DIRECTORY_SEPARATOR . 'banco.sqlite');
+define('DB_FILE', ROOT . 'db' . DIRECTORY_SEPARATOR . 'chat.sqlite');
 
 // This is the auto-loader for Composer-dependencies (to load tools into your project).
 require ROOT . 'vendor/autoload.php';
