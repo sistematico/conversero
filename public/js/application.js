@@ -2,7 +2,7 @@ $(function() {
     $.ajax({
         url: url + 'users/logged',
         success: function(data) {
-            if (data) {
+            if (data != 'false') {
                 $('#cadastroform').hide()
                 $('#loginform').hide();
                 $('#form_msg').show();
