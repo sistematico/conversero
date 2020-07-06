@@ -50,6 +50,6 @@ class ChatController
     {
         $sound = (isset($_POST['sound']) ? $_POST['sound'] : '');
         $Chat = new Chat();
-        $Chat->notification($sound);
+        echo $Chat->notification($sound);
     }
 }
