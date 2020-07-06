@@ -70,21 +70,9 @@ $(function() {
         }
     });
 
-
     $('#form_msg').on('submit', function(e) {
         e.preventDefault();
         if ($('#mensagem').val().length > 0) {
-            $.ajax({
-                url: 'audio.txt',
-                async: true,
-                complete: function(resp) {
-                    var res = resp['responseText'];
-                    var audio=document.createElement('audio');
-                    audio.src = res;
-                    audio.play();                
-                }
-            });
-
             $.ajax({
                 type     : 'POST',
                 cache    : false,
@@ -122,7 +110,7 @@ setInterval(() => {
         });
         $('#mensagens').html(result);
     });
-}, 1000);
+}, 1500);
 
 function playSound(){
     $.ajax({
