@@ -26,8 +26,8 @@ class User extends Model
     public function get($nome)
     {
         try {
-            $query = $this->db->prepare("SELECT id,nome,senha FROM usuarios WHERE nome LIKE :nome OR id LIKE :id LIMIT 1");
-            $query->execute([':nome' => $nome,':id' => $nome]);
+            $query = $this->db->prepare("SELECT id,nome,senha FROM usuarios WHERE nome = ? OR id = ? LIMIT 1");
+            $query->execute([$nome, $nome]);
             //$result = $query->fetch(\PDO::FETCH_BOTH);
             return $query->fetch(\PDO::FETCH_BOTH);
         } catch (\PDOException $e) {
