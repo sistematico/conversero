@@ -67,9 +67,10 @@ setInterval(() => {
 
 function playSound(){
     $.ajax({
-    type:'POST',
-    url: url + 'chat/notification',
-    // data: { url: 'snd/' },
-    async : true,
-    success: function(resp){}
-});
+        type:'POST',
+        url: url + 'chat/notification',
+        // data: { url: 'snd/' },
+        async : true,
+        success: function(resp){}
+    });
+}
