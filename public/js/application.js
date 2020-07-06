@@ -5,6 +5,7 @@ $(function() {
         url: url + 'users/logged',
         success: function(data) {
             if (data != 'false') {
+                userid = data;
                 $('#cadastroform').hide()
                 $('#loginform').hide();
                 $('#form_msg').show();
