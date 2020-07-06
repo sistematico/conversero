@@ -104,7 +104,7 @@ setInterval(() => {
         data = $.parseJSON(data);
         //data.reverse();       
 
-        console.warn(data);
+        console.log(data);
 
         $.each(data, function(key, item) {
             result += '<div class="message sent">';
