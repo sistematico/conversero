@@ -6,6 +6,7 @@ use PDO;
 class Model
 {
     public $db = null;
+    public static $database;
 
     function __construct() {
         try {

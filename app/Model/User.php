@@ -5,8 +5,6 @@ use App\Core\Model;
 
 class User extends Model
 {
-    static $db = $this->db;
-
     public function add($nome, $senha)
     {
         $sql = "INSERT INTO usuarios (nome, senha) VALUES (:nome, :senha)";
