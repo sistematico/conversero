@@ -34,38 +34,3 @@ setInterval(() => {
         $('#mensagens').html(result);
     });
 }, 1000);
-
-function strip(string) {
-    var container = document.createElement('div');
-    var text = document.createTextNode(string);
-    container.appendChild(text);
-    return container.innerHTML; // innerHTML will be a xss safe string
-}
-
-function convertTimestamp(timestamp) {
-    var d = new Date(timestamp * 1000),	// Convert the passed timestamp to milliseconds
-          hh = d.getHours(),
-          h = hh,
-          min = ('0' + d.getMinutes()).slice(-2),		// Add leading 0.
-          ampm = 'AM',
-          time;
-              
-      if (hh > 12) {
-          h = hh - 12;
-          ampm = 'PM';
-      } else if (hh === 12) {
-          h = 12;
-          ampm = 'PM';
-      } else if (hh == 0) {
-          h = 12;
-      }
-      
-      time = h + ':' + min + ' ' + ampm;
-      return time;
-}
-
-function color() {
-    let cores = ['#282a36','#44475a','#44475a','#f8f8f2','#6272a4','#8be9fd','#50fa7b','#ffb86c','#ff79c6','#bd93f9','#ff5555','#f1fa8c'];    
-    let rdm = cores[Math.floor(Math.random() * cores.length)];
-    return rdm;
-}
