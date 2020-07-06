@@ -12,8 +12,7 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "components/jquery": "^3",
-        "mervick/material-design-icons": "^2"
+        "components/jquery": "^3"
     },
     "autoload":
     {
@@ -24,7 +23,6 @@
     },
     "scripts": {
         "post-autoload-dump": [
-            "php -r \"rename('vendor/components/font-awesome/webfonts/', 'public/webfonts/');\"",
             "php -r \"copy('vendor/components/jquery/jquery.min.js', 'public/js/jquery.min.js');\""
         ]
     }
