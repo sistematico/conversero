@@ -57,7 +57,7 @@ class Chat extends Model
         }
     }
 
-    public function notification($action = false)
+    public function notification($action)
     {
         if ($action === false) {
             file_put_contents("audio.txt", URL + 'snd/incoming.mp3');

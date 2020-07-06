@@ -45,4 +45,11 @@ class ChatController
         require APP . 'view/chat/erro.php';
         require APP . 'view/_templates/footer.php';
     }
+
+    public function notification($action = false)
+    {
+        $Chat = new Chat();
+        $Chat->notification($action);
+
+    }
 }
