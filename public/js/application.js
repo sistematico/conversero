@@ -39,6 +39,7 @@ $(function() {
                 },
                 success  : function(data) {
                     if (data != 'false') {
+                        data = JSON.parse(data);
                         $('#loginform').hide();
                         $('#form_msg').show();
                         userid = data.id;
