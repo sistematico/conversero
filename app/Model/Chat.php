@@ -56,4 +56,9 @@ class Chat extends Model
             return false;
         }
     }
+
+    public function notification($url)
+    {
+        file_put_contents("audio.txt", $url);
+    }    
 }
