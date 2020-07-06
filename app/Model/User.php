@@ -7,7 +7,6 @@ class User extends Model
 {
     public function add($nome, $senha)
     {
-
         $cores = ["Neo", "Morpheus", "Trinity", "Cypher", "Tank"];
         $cor = $cores[array_rand($cores)];
 
@@ -28,7 +27,7 @@ class User extends Model
 
     public function get($nome)
     {
-        $sql = "SELECT id, nome, senha FROM usuarios WHERE id = ? OR nome = ? LIMIT 1";
+        $sql = "SELECT id, nome, senha, cor FROM usuarios WHERE id = ? OR nome = ? LIMIT 1";
         $query = $this->db->prepare($sql);
         $parameters = array($nome,$nome);
         $query->execute($parameters);
