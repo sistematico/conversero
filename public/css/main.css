@@ -101,12 +101,12 @@
 .user-bar .name {
   font-size: 17px;
   font-weight: 600;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
   letter-spacing: 0.3px;
   margin: 0 0 0 8px;
   overflow: hidden;
   white-space: nowrap;
-  width: 110px;
+  width: 120px;
 }
 
 .user-bar .status {
