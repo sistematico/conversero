@@ -40,4 +40,13 @@ class User extends Model
     {
         unset($_SESSION['id']);
     }
+
+    public function logged()
+    {
+        if (isset($_SESSION['id'])) {
+            return 'true';
+        }
+
+        return 'false';
+    }
 }
