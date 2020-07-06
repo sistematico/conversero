@@ -1,4 +1,6 @@
 $(function() {
+    let userid;
+
     $.ajax({
         url: url + 'users/logged',
         success: function(data) {
@@ -39,6 +41,7 @@ $(function() {
                     if (data != 'false') {
                         $('#loginform').hide();
                         $('#form_msg').show();
+                        userid = data.id;
                     }
                 }
             });
