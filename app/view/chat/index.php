@@ -15,8 +15,8 @@
         <?php } else { ?>
             <form id="cadastroform" class="conversation-compose" style="display:none">
             <span id="loginlink">Login</span>
-            <input id="usuario" placeholder="Usuário" autofocus>  
-            <input id="senha" placeholder="Senha">  
+            <input id="usuario_cadastro" placeholder="Usuário" autofocus>  
+            <input id="senha_cadastro" placeholder="Senha">  
             <button class="send" onclick="playSound()">
                 <div class="circle">
                     <i class="zmdi zmdi-mail-send"></i>
@@ -26,8 +26,8 @@
 
             <form id="loginform" class="conversation-compose">
             <span id="cadastrolink">Cadastro</span>
-            <input id="usuario" placeholder="Usuário" autofocus>  
-            <input id="senha" placeholder="Senha">  
+            <input id="usuario_login" placeholder="Usuário" autofocus>  
+            <input id="senha_login" placeholder="Senha">  
             <button class="send" onclick="playSound()">
                 <div class="circle">
                     <i class="zmdi zmdi-mail-send"></i>
