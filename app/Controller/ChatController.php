@@ -50,6 +50,5 @@ class ChatController
     {
         $Chat = new Chat();
         $Chat->notification($action);
-
     }
 }
