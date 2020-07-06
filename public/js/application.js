@@ -75,3 +75,18 @@ function playSound(){
         success: function(resp){}
     });
 }
+
+var check=setInterval(function(){
+    $.ajax({
+    url: "audio.txt",
+    type: 'POST',
+    async: true,
+    complete: function(resp){
+        var res = resp["responseText"];
+        var audio=document.createElement("audio");
+        audio.src = res;
+        audio.play();
+    
+        }
+    });
+    },1000);
