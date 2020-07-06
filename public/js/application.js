@@ -96,7 +96,7 @@ setInterval(() => {
         $.each(data, function(key, item) {
             result += '<div class="message sent">';
             if (item.usuario) {
-                result += item.usuario
+                result += '<span style="color: ' + item.cor + '">' + item.usuario + '</span>'; 
             } else {
                 result += 'Anônimo';
             } 
