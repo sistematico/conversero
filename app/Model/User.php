@@ -25,8 +25,9 @@ class User extends Model
 
     public static function get($nome)
     {
+        $db = self::$db;
         try {
-            $query = self::$db->prepare("SELECT id,nome,senha FROM usuarios WHERE nome = :nome OR id = :nome LIMIT 1");
+            $query = $db->prepare("SELECT id,nome,senha FROM usuarios WHERE nome = :nome OR id = :nome LIMIT 1");
             $query->execute([':nome' => $nome]);
             return $query->fetch(\PDO::FETCH_BOTH);
         } catch (\PDOException $e) {
