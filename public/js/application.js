@@ -12,22 +12,19 @@ $(function() {
                 url: "audio.txt",
                 type: 'POST',
                 async: true,
-                complete: function(resp){
+                complete: function(resp) {
                     var res = resp["responseText"];
                     var audio=document.createElement("audio");
                     audio.src = res;
-                    audio.play();
-                
-                    }
-                });
+                    audio.play();                
+                }
+            });
 
-                function clear(){
-                    $.ajax({
-                    type:'POST',
-                    url:'clear.php',
-                    success: function(resp){
-                    }
-                    });
+            $.ajax({
+                type:'POST',
+                url: url + 'chat/notification/0',
+                success: function(resp){ }
+            });
 
             $.ajax({
                 type     : "POST",
@@ -72,7 +69,7 @@ function playSound(){
     $.ajax({
     type:'POST',
     url: url + 'chat/notification',
-    data: {url: url},
+    // data: { url: 'snd/' },
     async : true,
     success: function(resp){}
 });
