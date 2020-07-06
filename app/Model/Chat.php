@@ -32,6 +32,7 @@ class Chat extends Model
     public function add($mensagem)
     {
         try {
+            $mensagem = strip_tags($mensagem);
             $sql = "INSERT INTO chat (mensagem,timestamp) VALUES (:mensagem,:timestamp)";
             $query = $this->db->prepare($sql);
             $query->execute([':mensagem' => $mensagem, ':timestamp' => time()]);
