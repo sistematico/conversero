@@ -30,7 +30,7 @@ class Chat extends Model
                 $query->execute([':idusuario' => $_SESSION['id'],':usuario' => $user->nome, ':mensagem' => $mensagem, ':timestamp' => time()]);
                 return 'true';
             } catch (\PDOException $e) {
-                unset($e);
+                //unset($e);
                 //return 'false';
                 return $e->getMessage();
             }        
