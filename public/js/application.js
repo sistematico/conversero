@@ -20,13 +20,6 @@ $(function() {
                 }
             });
 
-            // $.ajax({
-            //     type:'POST',
-            //     url: url + 'chat/notification',
-            //     data: { sound: '' },
-            //     success: function(resp){ }
-            // });
-
             $.ajax({
                 type     : "POST",
                 cache    : false,
@@ -76,17 +69,27 @@ function playSound(){
     });
 }
 
-var check=setInterval(function(){
+function clearSound() {
     $.ajax({
-    url: "audio.txt",
-    type: 'POST',
-    async: true,
-    complete: function(resp){
-        var res = resp["responseText"];
-        var audio=document.createElement("audio");
-        audio.src = res;
-        audio.play();
-    
+        type:'POST',
+        url: url + 'chat/notification',
+        data: { sound: '' },
+        success: function(resp){ }
+    });
+}
+
+//var check=setInterval(function(){
+    $.ajax({
+        url: "audio.txt",
+        type: 'POST',
+        async: true,
+        complete: function(resp){
+            var res = resp["responseText"];
+            alert(res)
+            var audio=document.createElement("audio");
+            audio.src = res;
+            audio.play();
+        
         }
     });
-    },1000);
+    //},1000);
