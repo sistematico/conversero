@@ -1,55 +1,25 @@
 <?php
 
 namespace App\Controller;
-use App\Model\Chat;
+use App\Model\User;
 
-class ChatController
+class UsersController
 {
-    public function index()
-    {
-        $Chat = new Chat();
-
-        if (isset($_POST["mensagem"]) && strlen($_POST["mensagem"]) > 1) {
-            $Chat->add($_POST["mensagem"]);
-        }
-
-        $messages = $Chat->list();
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/chat/index.php';
-        require APP . 'view/_templates/footer.php';
-    }
-
-    public function list()
-    {
-        $Chat = new Chat();
-        echo $Chat->list();
-    }
-
-    public function last()
-    {
-        $Chat = new Chat();
-        echo $Chat->getLast();
-    }
-
     public function add()
     {
-        if (isset($_POST["mensagem"])) {
-            $Chat = new Chat();
-            echo $Chat->add($_POST["mensagem"]);
-        }
+        $User = new User();
+        echo $User->add($_POST["usuario"], $_POST["senha"]);
     }
 
-    public function erro()
+    public function login()
     {
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/chat/erro.php';
-        require APP . 'view/_templates/footer.php';
+        $User = new User();
+        echo $User->login($_POST["usuario"], $_POST["senha"]);
     }
 
-    public function notification()
+    public function logout()
     {
-        $sound = (isset($_POST['sound']) ? $_POST['sound'] : '');
-        $Chat = new Chat();
-        echo $Chat->notification($sound);
+        $User = new User();
+        echo $User->logout();
     }
 }
