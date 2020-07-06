@@ -46,3 +46,9 @@ setInterval(() => {
         $('#mensagens').html(result);
     });
 }, 1000);
+
+function playSound() {
+    var audio = document.createElement("audio");
+    audio.src = url + 'snd/incoming.mp3';
+    audio.play();
+}
