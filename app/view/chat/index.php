@@ -46,7 +46,7 @@
                 <i class="zmdi zmdi-arrow-left"></i>
               </div>
               <div class="avatar">
-                <img src="https://i.ibb.co/2Yg7tWv/Rumbiiha-Swaibu.jpg" alt="Avatar">
+                <img src="<?php echo URL; ?>img/avatar.png" alt="Avatar">
               </div>
               <div class="name">
                 <span>Rumbiiha s.</span>
@@ -96,7 +96,7 @@
                 </div>
                 <button class="send">
                     <div class="circle">
-                      <i class="zmdi zmdi-mic"></i>
+                      <i class="zmdi zmdi-mail-send"></i>
                     </div>
                   </button>
               </form>
