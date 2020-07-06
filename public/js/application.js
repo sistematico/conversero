@@ -1,5 +1,5 @@
 $(function() {
-    let userid;
+    let userid, nome;
 
     $.ajax({
         url: url + 'users/logged',
@@ -42,6 +42,7 @@ $(function() {
                         data = JSON.parse(data);
                         $('#loginform').hide();
                         $('#form_msg').show();
+                        nome = data.nome;
                         userid = data.id;
                     }
                 }
