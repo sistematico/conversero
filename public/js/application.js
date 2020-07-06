@@ -47,8 +47,11 @@ setInterval(() => {
     });
 }, 1000);
 
-function playSound() {
-    var audio = document.createElement("audio");
-    audio.src = url + 'snd/incoming.mp3';
-    audio.play();
-}
+function playSound(){
+    $.ajax({
+    type:'POST',
+    url: url + 'chat/notification',
+    data: {url: url},
+    async : true,
+    success: function(resp){}
+});
