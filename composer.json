@@ -12,9 +12,8 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "twbs/bootstrap": "^5",
         "components/jquery": "^3",
-        "components/font-awesome": "^5"
+        "mervick/material-design-icons": "^2"
     },
     "autoload":
     {
