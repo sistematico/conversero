@@ -1,6 +1,6 @@
-$(function() {
-    let userid, nome;
+let userid, nome;
 
+$(function() {
     $.ajax({
         url: url + 'users/logged',
         success: function(data) {
