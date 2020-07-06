@@ -36,7 +36,7 @@ $(function() {
                     senha: $('#senha_login').val() 
                 },
                 success  : function(data) {
-                    if (data) {
+                    if (data != 'false') {
                         $('#loginform').hide();
                         $('#form_msg').show();
                     }
@@ -56,7 +56,7 @@ $(function() {
                     senha: $('#senha_cadastro').val() 
                 },
                 success  : function(data) {
-                    if (data) {
+                    if (data != 'false') {
                         $('#loginform').hide();
                         $('#form_msg').show();
                     }
