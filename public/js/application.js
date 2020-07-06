@@ -9,6 +9,27 @@ $(function() {
             // });
 
             $.ajax({
+                url: "audio.txt",
+                type: 'POST',
+                async: true,
+                complete: function(resp){
+                    var res = resp["responseText"];
+                    var audio=document.createElement("audio");
+                    audio.src = res;
+                    audio.play();
+                
+                    }
+                });
+
+                function clear(){
+                    $.ajax({
+                    type:'POST',
+                    url:'clear.php',
+                    success: function(resp){
+                    }
+                    });
+
+            $.ajax({
                 type     : "POST",
                 cache    : false,
                 url      : url + "chat/add",
