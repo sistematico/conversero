@@ -25,11 +25,18 @@ setInterval(() => {
                 result += 'Anônimo';
             } 
             result += ' - ';
-            result += item.mensagem + '<br />';
+            result += strip(item.mensagem) + '<br />';
         });
         $('#mensagens').html(result);
     });
 }, 1000);
+
+function strip(string) {
+    var container = document.createElement('div');
+    var text = document.createTextNode(string);
+    container.appendChild(text);
+    return container.innerHTML; // innerHTML will be a xss safe string
+}
 
 function convertTimestamp(timestamp) {
     var d = new Date(timestamp * 1000),	// Convert the passed timestamp to milliseconds
