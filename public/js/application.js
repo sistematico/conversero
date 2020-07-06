@@ -78,19 +78,19 @@ function clearSound() {
     });
 }
 
-clearSound();
-//var check=setInterval(function(){
+
+setInterval(() => {
     $.ajax({
         url: "audio.txt",
-        //type: 'POST',
         async: true,
-        complete: function(resp){
-            var res = resp["responseText"];
-            alert(res)
-            var audio=document.createElement("audio");
-            audio.src = res;
-            audio.play();
-        
+        complete: function(resp) {
+            if (resp["responseText"] != '') {
+                var res = resp["responseText"];
+                var audio=document.createElement("audio");
+                audio.src = res;
+                audio.play();
+                clearSound();
+            }        
         }
     });
-    //},1000);
+}, 1000);
