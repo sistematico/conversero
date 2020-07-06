@@ -16,6 +16,14 @@ $(function() {
         }
     });
 
+    $('#linksair').on('click', function(){
+
+        $.ajax({ 
+            url: url + 'users/logout',
+            success: function(data) { }
+        });
+
+    });
 
     $('#loginlink').on('click', function(){
         $('#cadastroform').hide();
