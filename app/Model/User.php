@@ -32,7 +32,6 @@ class User extends Model
         } catch (\PDOException $e) {
             return false;
         }
-
         return false;
     }
 
