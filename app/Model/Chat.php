@@ -25,9 +25,9 @@ class Chat extends Model
         if (isset($_SESSION['id']) && $user = $User->get($_SESSION['id'])) {
             try {
                 $mensagem = strip_tags($mensagem);
-                $sql = "INSERT INTO chat (usuario,mensagem,timestamp) VALUES (:usuario,:mensagem,:timestamp)";
+                $sql = "INSERT INTO chat (idusuario, usuario, mensagem, timestamp) VALUES (:idusuario, :usuario,:mensagem,:timestamp)";
                 $query = $this->db->prepare($sql);
-                $query->execute([':usuario' => $user->nome, ':mensagem' => $mensagem, ':timestamp' => time()]);
+                $query->execute([':idusuario' => $_SESSION['id'],':usuario' => $user->nome, ':mensagem' => $mensagem, ':timestamp' => time()]);
                 return 'true';
             } catch (\PDOException $e) {
                 unset($e);
