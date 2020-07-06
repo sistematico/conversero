@@ -14,7 +14,7 @@ class User extends Model
 
     public function login($nome, $senha)
     {
-        if ($usuario = $this->get()) {
+        if ($usuario = $this->get($nome)) {
             if ($usuario->nome == $nome) {
                 $_SESSION['id'] = $usuario->id;
                 return $usuario->id;
@@ -23,7 +23,7 @@ class User extends Model
         return 'false';
     }
 
-    public function get($id)
+    public function get($nome)
     {
         try {
             $query = $this->db->prepare("SELECT id,nome,senha FROM usuarios WHERE nome = :nome LIMIT 1");

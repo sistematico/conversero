@@ -5,17 +5,6 @@ use App\Core\Model;
 
 class Chat extends Model
 {
-    public function listold()
-    {
-        $query = $this->db->prepare("SELECT id, usuario, mensagem, timestamp FROM chat");
-        $query->execute();
-        $results = [];
-        while ($row = $query->fetch(\PDO::FETCH_BOTH)) {
-            $results[] = $row;
-        }
-        return json_encode($results);
-    }
-
     public function list()
     {
         $this->deleteLast($this->getLast());
