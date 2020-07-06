@@ -22,11 +22,9 @@
   }
   
 
-  input {
-
-    border-radius: 50%;
-
-    
+#mensagem {
+    border-radius: 20px;
+    padding: 0 13px;    
   }
 
 
