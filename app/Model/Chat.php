@@ -10,7 +10,7 @@ class Chat extends Model
     {
         $this->deleteLast($this->getLast());
 
-        $query = $this->db->prepare("SELECT id, usuario, mensagem, timestamp FROM chat ORDER BY timestamp DESC LIMIT 20");
+        $query = $this->db->prepare("SELECT id, usuario, mensagem, cor, timestamp FROM chat ORDER BY timestamp DESC LIMIT 20");
         $query->execute();
         $results = [];
         while ($row = $query->fetch(\PDO::FETCH_BOTH)) {
