@@ -42,7 +42,7 @@ class User extends Model
     public function logged()
     {
         if (isset($_SESSION['id'])) {
-            return 'true';
+            return $_SESSION['id'];
         }
 
         return 'false';
