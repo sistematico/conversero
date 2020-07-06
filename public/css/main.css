@@ -275,11 +275,11 @@
   
   /* Small Screens */
   
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .conversation {
       height: calc(100vh - 55px);
     }
     .conversation .conversation-container {
       height: calc(100vh - 120px);
     }
-  }
+  } */

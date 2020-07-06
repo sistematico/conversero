@@ -12,6 +12,8 @@
                 </div>
             </button>
         <?php } else { ?>
+            <span id="loginlink">Login</span>
+            <span id="cadastrolink" style="display:none">Cadastro</span>
             <input id="usuario" placeholder="Usuário" autofocus>  
             <input id="senha" placeholder="Senha">  
             <button class="send" onclick="playSound()">
