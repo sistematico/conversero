@@ -9,8 +9,42 @@ $(function() {
         $('#cadastroform').show();
     });
 
+    $('#loginform').on('submit', function(e) {
+        e.preventDefault();
+        if ($('#usuario_login').val().length > 0 && $('#senha_login').val().length > 0) {
+            $.ajax({
+                type     : 'POST',
+                cache    : false,
+                url      : url + 'chat/add',
+                data     : { mensagem: $('#mensagem').val() },
+                success  : function(data) {
+                    if (data) {
+                        $('#mensagem').val('');
+                    }
+                }
+            });
+        }
+    });
 
-    $('#form_msg').on('submit', function(e){
+    $('#cadastroform').on('submit', function(e) {
+        e.preventDefault();
+        if ($('#usuario_cadastro').val().length > 0 && $('#senha_cadastro').val().length > 0) {
+            $.ajax({
+                type     : 'POST',
+                cache    : false,
+                url      : url + 'chat/add',
+                data     : { mensagem: $('#mensagem').val() },
+                success  : function(data) {
+                    if (data) {
+                        $('#mensagem').val('');
+                    }
+                }
+            });
+        }
+    });
+
+
+    $('#form_msg').on('submit', function(e) {
         e.preventDefault();
         if ($('#mensagem').val().length > 0) {
             $.ajax({
