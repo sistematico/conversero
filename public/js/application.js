@@ -83,8 +83,6 @@ $(function() {
 
     $('#form_msg').on('submit', function(e) {
         e.preventDefault();
-        //document.getElementById('mensagens').scrollIntoView();
-        //document.getElementById('mensagens').scrollTop = -1; 
         let elmnt = document.getElementById('mensagens');
         elmnt.scrollTop = elmnt.offsetHeight;
         if ($('#mensagem').val().length > 0) {
@@ -103,11 +101,6 @@ $(function() {
     });
 });
 
-
-// document.getElementById("mensagens").addEventListener("DOMNodeInserted", function (e) {
-//     //e.target // 
-//     playSound();
-// }, false);
 
 setInterval(() => {
     $.ajax(url + 'chat/list').done(function(data) {
@@ -133,24 +126,8 @@ setInterval(() => {
 }, 1500);
 
 function playSound(){
-    // $.ajax({
-    //     type:'POST',
-    //     url: url + 'chat/notification',
-    //     data: { sound: url + 'snd/incoming.mp3' },
-    //     async : true,
-    //     success: function(resp){}
-    // });
-
     let audio = new Audio(url + "snd/incoming.mp3");
     audio.play();
-}
-
-function clearSound() {
-    $.ajax({
-        type:'POST',
-        url: url + 'chat/notification',
-        success: function(resp) { }
-    });
 }
 
 function logged() {
@@ -161,38 +138,3 @@ function logged() {
         }
     });
 }
-
-
-
-
-
-
-
-
-
-
-const targetNode = document.getElementById('mensagens');
-
-// Options for the observer (which mutations to observe)
-const config = { attributes: false, childList: false, subtree: false, characterData: true};
-
-// Callback function to execute when mutations are observed
-const callback = function(mutationsList, observer) {
-    // Use traditional 'for loops' for IE 11
-    for(let mutation of mutationsList) {
-        //console.log('A child node has been added or removed.', mutation.type);
-        if (mutation.type === 'childList') {
-            //console.log('A child node has been added or removed.', mutation.type);
-        }
-        else if (mutation.type === 'attributes') {
-            console.log('The ' + mutation.attributeName + ' attribute was modified.');
-        }
-    }
-};
-
-// Create an observer instance linked to the callback function
-const observer = new MutationObserver(callback);
-
-// Start observing the target node for configured mutations
-observer.observe(targetNode, config);
-
