@@ -31,7 +31,8 @@ class Chat extends Model
                 return 'true';
             } catch (\PDOException $e) {
                 unset($e);
-                return 'false';
+                //return 'false';
+                return $e->getMessage();
             }        
         }
 
