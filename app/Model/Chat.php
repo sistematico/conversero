@@ -15,7 +15,9 @@ class Chat extends Model
             $results[] = $row;
         }
 
-        $this->getCor();
+        foreach ($results as $item) {
+            $results['cor'][] = $this->getCor($item['nome']);
+        }
 
         return json_encode($results);
     }
