@@ -15,9 +15,9 @@ class User extends Model
     public function login($nome, $senha)
     {
         if ($usuario = $this->get($nome) != false) {
-            if ($usuario['nome'] === $nome) {
+            if ($usuario->nome == $nome) {
                 $_SESSION['id'] = $usuario['id'];
-                return json_encode(['id'=>$usuario['id'],'nome'=>$usuario['nome']]);
+                return json_encode(['id'=>$usuario->id,'nome'=>$usuario->nome]);
             }
         } 
         return 'false';
@@ -25,7 +25,7 @@ class User extends Model
 
     public function get($nome)
     {
-        $sql = "SELECT id, artist, track, link FROM song WHERE id = ? OR nome = ? LIMIT 1";
+        $sql = "SELECT id, nome, senha FROM usuarios WHERE id = ? OR nome = ? LIMIT 1";
         $query = $this->db->prepare($sql);
         $parameters = array($nome,$nome);
         $query->execute($parameters);
