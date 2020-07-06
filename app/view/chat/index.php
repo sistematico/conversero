@@ -1,5 +1,6 @@
 
 
+<div class="chat">
 <div class="chat-container">
 
 
@@ -66,7 +67,4 @@
             </button>
         </form>
   </div>
-<!-- </div> -->
-
-
-
+</div>
