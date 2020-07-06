@@ -9,7 +9,7 @@
 
 <div class="user-bar">
               <div class="back">
-                <i class="zmdi zmdi-arrow-left"></i>
+                <i id="linksair" class="zmdi zmdi-arrow-left"></i>
               </div>
               <div class="avatar">
                 <img src="<?php echo URL; ?>img/avatar.png" alt="Avatar">
